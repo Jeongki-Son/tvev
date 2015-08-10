@@ -4,6 +4,9 @@ class HomeController < ApplicationController
   def index
     @tvs = Tv.all
     @banner = @tvs.sample
+    if @tvs.empty?
+      redirect_to '/home/upload'
+    end
   end
 
   def detail
